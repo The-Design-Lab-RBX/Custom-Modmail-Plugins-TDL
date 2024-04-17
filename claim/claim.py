@@ -21,6 +21,7 @@ class ClaimThread(commands.Cog):
     @checks.thread_only()
     @commands.command()
     async def claim(self, ctx):
+        """Claim a thread"""
         thread = await self.db.find_one({'thread_id': str(ctx.thread.channel.id)})
         if thread is None:
             await self.db.insert_one({'thread_id': str(ctx.thread.channel.id), 'claimers': [str(ctx.author.id)]})
