@@ -1,0 +1,8 @@
+{
+    "name": "General Info",
+    "description": [
+        "Get general information about the TDL Modmail bot, TDL server member, Discord user, TDL Discord server and many more.",
+        "\n**Version:**\n`{0}`"
+    ],
+    "version": "1"
+}
