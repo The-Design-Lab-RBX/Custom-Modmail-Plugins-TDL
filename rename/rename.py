@@ -7,7 +7,7 @@ from core.models import PermissionLevel
 import datetime
 
 class Rename(commands.Cog):
-    """Rename a thread"""
+    """Allows TDL support membres to rename TDL support threads"""
 
     def __init__(self, bot):
         self.bot = bot
@@ -17,6 +17,7 @@ class Rename(commands.Cog):
 
     @commands.command()
     async def rename(self, ctx, *, request):
+        """Allows TDL support membres to rename a thread"""
         try:
             await ctx.message.add_reaction('⏰')
             
