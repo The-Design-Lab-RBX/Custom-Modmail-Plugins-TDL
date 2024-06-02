@@ -11,7 +11,7 @@ class ClaimThread(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.db = self.bot.plugin_db.get_partition(self)
-        check_reply.fail_msg = 'This thread has been claimed by another user.'
+        check_reply.fail_msg = 'Claims - Error - This thread has been claimed by another staff member - If you belive this needs to be overridden contact a SHR member'
         self.bot.get_command('reply').add_check(check_reply)
         self.bot.get_command('areply').add_check(check_reply)
         self.bot.get_command('fareply').add_check(check_reply)
@@ -25,7 +25,7 @@ class ClaimThread(commands.Cog):
         thread = await self.db.find_one({'thread_id': str(ctx.thread.channel.id)})
         if thread is None:
             await self.db.insert_one({'thread_id': str(ctx.thread.channel.id), 'claimers': [str(ctx.author.id)]})
-            await ctx.send('Claimed')
+            await ctx.send('Claims - You have Claimed this thread.')
         else:
             await ctx.send('Claims - Error - Thread is already claimed - If you believe this is an error or need to be added please contact a higher rank.')
 
